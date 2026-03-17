@@ -163,7 +163,7 @@ class LucasKanadeTracker:
             
             if p0 is not None and len(p0) > 0:
                 # Calculate optical flow
-                p1, st, err = cv2.calcOpticalFlowPyrLK(old_gray, gray, p0, **lk_params)
+                p1, st, err = cv2.calcOpticalFlowPyrLK(old_gray, gray, p0, None, **lk_params) # type: ignore
                 
                 if p1 is not None:
                     good_new = p1[st == 1]
